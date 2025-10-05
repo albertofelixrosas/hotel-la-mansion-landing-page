@@ -11,38 +11,32 @@ export function Location() {
     "Templo Purísima Concepción",
     "Museo Costumbrista",
     "Callejón del Beso",
-    "Mercado Municipal",
     "Plaza Alameda",
   ]
 
   const locationImages = [
     {
-      src: "/aerial-view-of-alamos-sonora-mexico-colonial-town-.jpg",
+      src: "/ubications/Plaza de Armas.jpg",
       alt: "Plaza de Armas de Álamos",
       title: "Plaza de Armas"
     },
     {
-      src: "/colonial-hotel-exterior-facade-at-sunset-in-alamos.jpg",
+      src: "/ubications/Templo Purísima Concepción.jpg",
       alt: "Templo de la Purísima Concepción",
       title: "Templo Purísima Concepción"
     },
     {
-      src: "/colonial-mexican-hotel-exterior-with-arches-and-co.jpg",
+      src: "/ubications/Museo Costumbrista.jpeg",
       alt: "Museo Costumbrista de Sonora",
       title: "Museo Costumbrista"
     },
     {
-      src: "/colonial-hotel-courtyard-with-fountain-and-arches-.jpg",
+      src: "/ubications/Callejón del Beso.jpg",
       alt: "Callejón del Beso en Álamos",
       title: "Callejón del Beso"
     },
     {
-      src: "/colonial-hotel-garden-with-tropical-plants.jpg",
-      alt: "Mercado Municipal de Álamos",
-      title: "Mercado Municipal"
-    },
-    {
-      src: "/hotel-swimming-pool-with-colonial-architecture-bac.jpg",
+      src: "/ubications/Plaza Alameda.jpg",
       alt: "Plaza Alameda de Álamos",
       title: "Plaza Alameda"
     }

@@ -1,6 +1,11 @@
+"use client"
+
 import Image from "next/image"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Footer() {
+  const { t } = useLanguage()
+  
   return (
     <footer className="bg-foreground text-background py-12">
       <div className="container mx-auto px-4">
@@ -14,21 +19,21 @@ export function Footer() {
               className="h-12 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-sm text-background/80 leading-relaxed">
-              Un refugio de historia y calidez en el corazón de Álamos, Sonora
+              {t.footer.description}
             </p>
           </div>
 
           <div>
-            <h4 className="font-serif text-lg mb-4">Contacto</h4>
+            <h4 className="font-serif text-lg mb-4">{t.footer.contact}</h4>
             <div className="space-y-2 text-sm text-background/80">
-              <p>WhatsApp: +52 647 106 5525</p>
-              <p>Email: jojonm@mac.com</p>
-              <p>Álamos, Sonora, México</p>
+              <p>{t.contact.whatsappLabel}: +52 647 106 5525</p>
+              <p>{t.contact.emailLabel}: jojonm@mac.com</p>
+              <p>{t.contact.city}, {t.contact.state}, {t.contact.country}</p>
             </div>
           </div>
 
           <div>
-            <h4 className="font-serif text-lg mb-4">Síguenos</h4>
+            <h4 className="font-serif text-lg mb-4">{t.footer.followUs}</h4>
             <div className="flex gap-4">
               <a
                 href="https://www.instagram.com/hotel.lamansion/"
@@ -69,7 +74,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-background/20 pt-8 text-center text-sm text-background/60">
-          <p>&copy; {new Date().getFullYear()} Hotel La Mansión. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Hotel La Mansión. {t.footer.rights}</p>
         </div>
       </div>
     </footer>

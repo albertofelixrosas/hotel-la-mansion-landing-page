@@ -2,9 +2,11 @@
 
 import { useState } from "react"
 import { MapPin, Landmark, ChevronLeft, ChevronRight } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Location() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const { t } = useLanguage()
 
   const attractions = [
     "Plaza de Armas",
@@ -58,9 +60,9 @@ export function Location() {
     <section className="py-20 md:py-32">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">Ubicación Privilegiada</h2>
+          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">{t.location.title}</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            En el corazón del centro histórico de Álamos
+            {t.location.subtitle}
           </p>
         </div>
 
@@ -69,10 +71,9 @@ export function Location() {
             <div className="flex items-start gap-3 mb-6">
               <MapPin className="text-foreground mt-1 flex-shrink-0" size={24} />
               <div>
-                <h3 className="font-serif text-2xl mb-2">Hotel La Mansión</h3>
+                <h3 className="font-serif text-2xl mb-2">{t.location.hotelName}</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Ubicado a un costado izquierdo del Palacio Municipal de Álamos, en el corazón de este Pueblo Mágico de
-                  Sonora, México.
+                  {t.location.description}
                 </p>
               </div>
             </div>
@@ -80,7 +81,7 @@ export function Location() {
             <div className="bg-muted/30 rounded-xl p-6 mb-6">
               <div className="flex items-center gap-2 mb-4">
                 <Landmark className="text-foreground" size={20} />
-                <h4 className="font-semibold">Atracciones Cercanas</h4>
+                <h4 className="font-semibold">{t.location.nearbyAttractions}</h4>
               </div>
               <ul className="grid grid-cols-2 gap-3">
                 {attractions.map((attraction) => (
@@ -93,7 +94,7 @@ export function Location() {
             </div>
 
             <p className="text-sm text-muted-foreground">
-              Acceso por carretera • A pocos pasos de los principales sitios históricos
+              {t.location.accessInfo}
             </p>
           </div>
 

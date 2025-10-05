@@ -1,26 +1,30 @@
+"use client"
+
 import { Coffee, Calendar, Heart, UtensilsCrossed } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Services() {
+  const { t } = useLanguage();
   const services = [
     {
       icon: UtensilsCrossed,
-      title: "Restaurante & Bar",
-      description: "Disfruta de auténtica gastronomía local en nuestro restaurante por las tardes",
+      title: t.services.restaurant.title,
+      description: t.services.restaurant.description,
     },
     {
       icon: Coffee,
-      title: "Cafetería",
-      description: "Café recién hecho y gelato artesanal durante todo el día",
+      title: t.services.cafe.title,
+      description: t.services.cafe.description,
     },
     {
       icon: Calendar,
-      title: "Eventos Especiales",
-      description: "Espacios únicos para celebraciones y eventos memorables",
+      title: t.services.events.title,
+      description: t.services.events.description,
     },
     {
       icon: Heart,
-      title: "Pet Friendly",
-      description: "Tus mascotas son bienvenidas en Hotel La Mansión",
+      title: t.services.petFriendly.title,
+      description: t.services.petFriendly.description,
     },
   ]
 
@@ -28,9 +32,9 @@ export function Services() {
     <section className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">Servicios y Experiencias</h2>
+          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">{t.services.title}</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Todo lo que necesitas para una estancia inolvidable
+            {t.services.subtitle}
           </p>
         </div>
 
@@ -48,9 +52,9 @@ export function Services() {
 
         <div className="mt-16 text-center">
           <div className="inline-block bg-background rounded-2xl p-8 shadow-sm">
-            <p className="text-lg font-medium mb-2">Check-in / Check-out</p>
-            <p className="text-3xl font-serif text-foreground">24 horas</p>
-            <p className="text-sm text-muted-foreground mt-2">Disponible todos los días</p>
+            <p className="text-lg font-medium mb-2">{t.services.checkIn.title}</p>
+            <p className="text-3xl font-serif text-foreground">{t.services.checkIn.hours}</p>
+            <p className="text-sm text-muted-foreground mt-2">{t.services.checkIn.availability}</p>
           </div>
         </div>
       </div>

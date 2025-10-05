@@ -4,19 +4,21 @@ import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [lang, setLang] = useState<"es" | "en">("es")
+  const { language, setLanguage, t } = useLanguage()
 
-  const navItems = {
-    es: ["Inicio", "Habitaciones", "Galería", "Contacto"],
-    en: ["Home", "Rooms", "Gallery", "Contact"],
-  }
+  const navItems = [
+    { key: "home", section: "hero" },
+    { key: "rooms", section: "rooms" },
+    { key: "gallery", section: "gallery" },
+    { key: "contact", section: "contact" }
+  ]
 
-  const scrollToSection = (index: number) => {
-    const sections = ["hero", "rooms", "gallery", "contact"]
-    const element = document.getElementById(sections[index])
+  const scrollToSection = (section: string) => {
+    const element = document.getElementById(section)
     element?.scrollIntoView({ behavior: "smooth" })
     setIsOpen(false)
   }
@@ -31,23 +33,23 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems[lang].map((item, index) => (
+            {navItems.map((item, index) => (
               <button
-                key={item}
-                onClick={() => scrollToSection(index)}
+                key={item.key}
+                onClick={() => scrollToSection(item.section)}
                 className="relative text-foreground hover:text-primary transition-all duration-300 font-serif group px-2 py-1 hover:scale-105"
               >
-                {item}
+                {t.nav[item.key as keyof typeof t.nav]}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={() => setLang(lang === "es" ? "en" : "es")} 
+              onClick={() => setLanguage(language === "es" ? "en" : "es")} 
               className="text-sm hover:bg-primary/10 hover:scale-105 transition-all duration-300 border border-transparent hover:border-primary/20"
             >
-              {lang === "es" ? "EN" : "ES"}
+              {t.nav.language}
             </Button>
           </div>
 
@@ -60,22 +62,22 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-4">
-            {navItems[lang].map((item, index) => (
+            {navItems.map((item, index) => (
               <button
-                key={item}
-                onClick={() => scrollToSection(index)}
+                key={item.key}
+                onClick={() => scrollToSection(item.section)}
                 className="block w-full text-left text-foreground hover:text-primary transition-all duration-300 font-serif hover:translate-x-2 hover:bg-primary/5 px-3 py-2 rounded-md"
               >
-                {item}
+                {t.nav[item.key as keyof typeof t.nav]}
               </button>
             ))}
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={() => setLang(lang === "es" ? "en" : "es")} 
+              onClick={() => setLanguage(language === "es" ? "en" : "es")} 
               className="text-sm hover:bg-primary/10 transition-all duration-300 border border-transparent hover:border-primary/20"
             >
-              {lang === "es" ? "English" : "Español"}
+              {language === "es" ? "English" : "Español"}
             </Button>
           </div>
         )}

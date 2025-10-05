@@ -2,65 +2,67 @@
 
 import { useState } from "react"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Gallery() {
+  const { t } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const images = [
     {
       src: "/gallery/1-Fachada-1.jpg",
-      alt: "Fachada del hotel",
-      title: "Fachada Principal",
-      description: "La elegante fachada colonial de Hotel La Mansión"
+      alt: t.gallery.images.facade.alt,
+      title: t.gallery.images.facade.title,
+      description: t.gallery.images.facade.description
     },
     {
       src: "/gallery/2-Jardin.jpg",
-      alt: "Jardín del hotel",
-      title: "Jardines",
-      description: "Hermosos jardines que complementan la arquitectura colonial"
+      alt: t.gallery.images.garden.alt,
+      title: t.gallery.images.garden.title,
+      description: t.gallery.images.garden.description
     },
     {
       src: "/gallery/3-Gelato-&-Café.jpg",
-      alt: "Gelato y café",
-      title: "Gelato & Café",
-      description: "Deliciosos gelatos artesanales y café recién hecho"
+      alt: t.gallery.images.gelato.alt,
+      title: t.gallery.images.gelato.title,
+      description: t.gallery.images.gelato.description
     },
     {
       src: "/gallery/4-Restaurant.jpg",
-      alt: "Restaurante del hotel",
-      title: "Restaurante",
-      description: "Nuestro acogedor restaurante con ambiente colonial auténtico"
+      alt: t.gallery.images.restaurant.alt,
+      title: t.gallery.images.restaurant.title,
+      description: t.gallery.images.restaurant.description
     },
     {
       src: "/gallery/5-Bar.jpg",
-      alt: "Bar del hotel",
-      title: "Bar",
-      description: "Bar con decoración colonial y ambiente rústico encantador"
+      alt: t.gallery.images.bar.alt,
+      title: t.gallery.images.bar.title,
+      description: t.gallery.images.bar.description
     },
     {
       src: "/gallery/6-Fachada 2.jpg",
-      alt: "Vista alternativa de la fachada",
-      title: "Fachada Colonial",
-      description: "Otra perspectiva de nuestra hermosa arquitectura colonial"
+      alt: t.gallery.images.facade2.alt,
+      title: t.gallery.images.facade2.title,
+      description: t.gallery.images.facade2.description
     },
     {
       src: "/gallery/7-Jardin-2.jpg",
-      alt: "Jardín alternativo",
-      title: "Áreas Verdes",
-      description: "Espacios naturales perfectos para el descanso y relajación"
+      alt: t.gallery.images.garden2.alt,
+      title: t.gallery.images.garden2.title,
+      description: t.gallery.images.garden2.description
     },
     {
       src: "/gallery/8-Alberca.jpg",
-      alt: "Alberca del hotel",
-      title: "Alberca",
-      description: "Refrescante alberca en un entorno colonial único"
+      alt: t.gallery.images.pool.alt,
+      title: t.gallery.images.pool.title,
+      description: t.gallery.images.pool.description
     },
     {
       src: "/gallery/9-Pet-Friendly.jpg",
-      alt: "Espacio pet friendly",
-      title: "Pet Friendly",
-      description: "Espacios especiales donde tus mascotas son bienvenidas"
+      alt: t.gallery.images.petFriendly.alt,
+      title: t.gallery.images.petFriendly.title,
+      description: t.gallery.images.petFriendly.description
     },
   ]
 
@@ -89,9 +91,9 @@ export function Gallery() {
     <section id="gallery" className="py-20 md:py-32">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">Galería</h2>
+          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">{t.gallery.title}</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Descubre la belleza y el encanto de Hotel La Mansión
+            {t.gallery.subtitle}
           </p>
         </div>
 

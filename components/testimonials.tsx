@@ -1,25 +1,29 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Testimonials() {
+  const { t } = useLanguage();
   const testimonials = [
     {
-      name: "Diego Martinez",
-      location: "California, USA",
-      text: "Muy cerca de la plaza principal, personal muy atentos, cuartos muy amplios y aún conserva esa imagen colonial, en lo personal fue algo que me encantó.",
-      rating: 5,
+      name: t.testimonials.reviews.diego.name,
+      location: t.testimonials.reviews.diego.location,
+      text: t.testimonials.reviews.diego.text,
+      rating: t.testimonials.reviews.diego.rating,
     },
     {
-      name: "Peter Angulo",
-      location: "Ciudad de México",
-      text: "A wonderful place to stay. Easily one of the most beautiful rooms I have seen. Water pressure is low so don't plan on a bath unless you are there for a week.",
-      rating: 5,
+      name: t.testimonials.reviews.peter.name,
+      location: t.testimonials.reviews.peter.location,
+      text: t.testimonials.reviews.peter.text,
+      rating: t.testimonials.reviews.peter.rating,
     },
     {
-      name: "Nancy Elena Regino",
-      location: "Arizona, USA",
-      text: "Excelente hospedaje, excelente ubicación",
-      rating: 5,
+      name: t.testimonials.reviews.nancy.name,
+      location: t.testimonials.reviews.nancy.location,
+      text: t.testimonials.reviews.nancy.text,
+      rating: t.testimonials.reviews.nancy.rating,
     },
   ]
 
@@ -27,9 +31,9 @@ export function Testimonials() {
     <section className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">Lo Que Dicen Nuestros Huéspedes</h2>
+          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">{t.testimonials.title}</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Experiencias reales de quienes nos han visitado
+            {t.testimonials.subtitle}
           </p>
         </div>
 

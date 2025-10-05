@@ -1,21 +1,25 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Contact() {
+  const { t } = useLanguage()
 
   return (
     <section id="contact" className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">Contáctanos</h2>
+          <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">{t.contact.title}</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Estamos aquí para hacer tu estancia inolvidable
+            {t.contact.subtitle}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>
-            <h3 className="font-serif text-2xl mb-6">Información de Contacto</h3>
+            <h3 className="font-serif text-2xl mb-6">{t.contact.contactInfo}</h3>
 
             <div className="space-y-6 mb-8">
               <a
@@ -37,7 +41,7 @@ export function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-medium">WhatsApp</p>
+                  <p className="font-medium">{t.contact.whatsappLabel}</p>
                   <p className="text-muted-foreground">+52 647 106 5525</p>
                 </div>
               </a>
@@ -50,14 +54,14 @@ export function Contact() {
                   <Mail className="text-foreground" size={24} />
                 </div>
                 <div>
-                  <p className="font-medium">Email</p>
+                  <p className="font-medium">{t.contact.emailLabel}</p>
                   <p className="text-muted-foreground">jojonm@mac.com</p>
                 </div>
               </a>
             </div>
 
             <div className="bg-background rounded-xl p-6">
-              <h4 className="font-semibold mb-4">También nos encuentras en:</h4>
+              <h4 className="font-semibold mb-4">{t.contact.alsoFindUs}</h4>
               <div className="grid grid-cols-2 gap-3">
                 <Button variant="outline" size="sm" asChild>
                   <a href="https://www.booking.com/Share-9qkYyT" target="_blank" rel="noopener noreferrer">
@@ -94,7 +98,7 @@ export function Contact() {
           </div>
 
           <div>
-            <h3 className="font-serif text-2xl mb-6">Nuestra Ubicación</h3>
+            <h3 className="font-serif text-2xl mb-6">{t.contact.ourLocation}</h3>
             
             {/* Google Maps iframe */}
             <div className="mb-6 rounded-xl overflow-hidden shadow-lg">
@@ -122,39 +126,39 @@ export function Contact() {
                 >
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                Detalles de Ubicación
+{t.contact.locationDetails}
               </h4>
               
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2 border-b border-muted">
-                  <span className="text-sm font-medium text-muted-foreground">Dirección:</span>
-                  <span className="text-sm">Benito Juárez 20, Centro</span>
+                  <span className="text-sm font-medium text-muted-foreground">{t.contact.addressLabel}</span>
+                  <span className="text-sm">{t.contact.address}</span>
                 </div>
                 
                 <div className="flex justify-between items-center py-2 border-b border-muted">
-                  <span className="text-sm font-medium text-muted-foreground">Código Postal:</span>
-                  <span className="text-sm">85760</span>
+                  <span className="text-sm font-medium text-muted-foreground">{t.contact.postalCodeLabel}</span>
+                  <span className="text-sm">{t.contact.postalCode}</span>
                 </div>
                 
                 <div className="flex justify-between items-center py-2 border-b border-muted">
-                  <span className="text-sm font-medium text-muted-foreground">Ciudad:</span>
-                  <span className="text-sm">Álamos</span>
+                  <span className="text-sm font-medium text-muted-foreground">{t.contact.cityLabel}</span>
+                  <span className="text-sm">{t.contact.city}</span>
                 </div>
                 
                 <div className="flex justify-between items-center py-2 border-b border-muted">
-                  <span className="text-sm font-medium text-muted-foreground">Estado:</span>
-                  <span className="text-sm">Sonora</span>
+                  <span className="text-sm font-medium text-muted-foreground">{t.contact.stateLabel}</span>
+                  <span className="text-sm">{t.contact.state}</span>
                 </div>
                 
                 <div className="flex justify-between items-center py-2">
-                  <span className="text-sm font-medium text-muted-foreground">País:</span>
-                  <span className="text-sm">México</span>
+                  <span className="text-sm font-medium text-muted-foreground">{t.contact.countryLabel}</span>
+                  <span className="text-sm">{t.contact.country}</span>
                 </div>
               </div>
 
               <div className="mt-4 pt-4 border-t border-muted">
                 <p className="text-xs text-muted-foreground text-center">
-                  A un costado izquierdo del Palacio Municipal de Álamos
+                  {t.contact.locationNote}
                 </p>
               </div>
             </div>

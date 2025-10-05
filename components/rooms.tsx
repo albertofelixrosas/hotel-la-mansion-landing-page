@@ -1,35 +1,37 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Bed, Coffee, Wifi, Waves, Flame } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Rooms() {
+  const { t } = useLanguage();
   const rooms = [
     {
-      title: "Habitación Sencilla King",
-      subtitle: "Para 2 personas",
-      description:
-        "Espaciosa habitación con cama King size, perfecta para parejas que buscan comodidad y privacidad.",
+      title: t.rooms.room1.title,
+      subtitle: t.rooms.room1.subtitle,
+      description: t.rooms.room1.description,
       image: "/rooms/Habitación-King.jpg",
       icon: Users,
-      capacity: "2 personas",
-      bed: "Cama King",
+      capacity: t.rooms.room1.capacity,
+      bed: t.rooms.room1.bed,
     },
     {
-      title: "Habitación Doble Queen",
-      subtitle: "Para 4 personas",
-      description:
-        "Amplia habitación con dos camas Queen size, ideal para familias que desean disfrutar juntos.",
+      title: t.rooms.room2.title,
+      subtitle: t.rooms.room2.subtitle,
+      description: t.rooms.room2.description,
       image: "/rooms/Habitación-Queen-doble.jpg",
       icon: Users,
-      capacity: "4 personas",
-      bed: "2 Camas Queen",
+      capacity: t.rooms.room2.capacity,
+      bed: t.rooms.room2.bed,
     },
   ];
 
   const amenities = [
-    { icon: Coffee, label: "Desayuno incluido" },
-    { icon: Flame, label: "Chimenea" },
-    { icon: Wifi, label: "WiFi gratis" },
-    { icon: Waves, label: "Acceso a alberca" },
+    { icon: Coffee, label: t.rooms.amenities.breakfast },
+    { icon: Flame, label: t.rooms.amenities.fireplace },
+    { icon: Wifi, label: t.rooms.amenities.wifi },
+    { icon: Waves, label: t.rooms.amenities.pool },
   ];
 
   return (
@@ -37,11 +39,10 @@ export function Rooms() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-6xl mb-4 text-balance">
-            Nuestras Habitaciones
+            {t.rooms.title}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Espacios diseñados para tu comodidad, con el encanto de la
-            arquitectura colonial
+            {t.rooms.subtitle}
           </p>
         </div>
 
@@ -78,7 +79,7 @@ export function Rooms() {
 
         <div className="bg-muted/30 rounded-2xl p-8 md:p-12">
           <h3 className="font-serif text-2xl md:text-3xl mb-8 text-center">
-            Todas las habitaciones incluyen
+            {t.rooms.amenitiesTitle}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {amenities.map((amenity) => (

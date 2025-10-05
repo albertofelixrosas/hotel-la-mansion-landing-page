@@ -18,23 +18,33 @@ export function Location() {
   const locationImages = [
     {
       src: "/aerial-view-of-alamos-sonora-mexico-colonial-town-.jpg",
-      alt: "Vista aérea de Álamos",
-      title: "Vista Aérea de Álamos"
-    },
-    {
-      src: "/colonial-mexican-hotel-exterior-with-arches-and-co.jpg",
-      alt: "Exterior colonial del hotel",
-      title: "Arquitectura Colonial"
+      alt: "Plaza de Armas de Álamos",
+      title: "Plaza de Armas"
     },
     {
       src: "/colonial-hotel-exterior-facade-at-sunset-in-alamos.jpg",
-      alt: "Fachada del hotel al atardecer",
-      title: "Atardecer en Álamos"
+      alt: "Templo de la Purísima Concepción",
+      title: "Templo Purísima Concepción"
+    },
+    {
+      src: "/colonial-mexican-hotel-exterior-with-arches-and-co.jpg",
+      alt: "Museo Costumbrista de Sonora",
+      title: "Museo Costumbrista"
     },
     {
       src: "/colonial-hotel-courtyard-with-fountain-and-arches-.jpg",
-      alt: "Patio colonial con fuente",
-      title: "Centro Histórico"
+      alt: "Callejón del Beso en Álamos",
+      title: "Callejón del Beso"
+    },
+    {
+      src: "/colonial-hotel-garden-with-tropical-plants.jpg",
+      alt: "Mercado Municipal de Álamos",
+      title: "Mercado Municipal"
+    },
+    {
+      src: "/hotel-swimming-pool-with-colonial-architecture-bac.jpg",
+      alt: "Plaza Alameda de Álamos",
+      title: "Plaza Alameda"
     }
   ]
 

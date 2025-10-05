@@ -9,40 +9,58 @@ export function Gallery() {
 
   const images = [
     {
-      src: "/colonial-hotel-courtyard-with-fountain-and-arches-.jpg",
-      alt: "Patio colonial",
-      title: "Patio Colonial",
-      description: "Un hermoso patio central con fuente y arquitectura colonial auténtica"
-    },
-    {
-      src: "/hotel-swimming-pool-with-colonial-architecture-bac.jpg",
-      alt: "Alberca",
-      title: "Alberca",
-      description: "Refrescante alberca rodeada de la belleza arquitectónica colonial"
-    },
-    {
-      src: "/colonial-hotel-restaurant-interior-with-warm-light.jpg",
-      alt: "Restaurante",
-      title: "Restaurante",
-      description: "Interior acogedor del restaurante con iluminación cálida y ambiente colonial"
-    },
-    {
-      src: "/colonial-hotel-exterior-facade-at-sunset-in-alamos.jpg",
+      src: "/gallery/1-Fachada-1.jpg",
       alt: "Fachada del hotel",
-      title: "Fachada del Hotel",
-      description: "La majestuosa fachada del hotel al atardecer en Álamos"
+      title: "Fachada Principal",
+      description: "La elegante fachada colonial de Hotel La Mansión"
     },
     {
-      src: "/colonial-hotel-garden-with-tropical-plants.jpg",
-      alt: "Jardines",
-      title: "Jardines Tropicales",
-      description: "Exuberantes jardines con plantas tropicales que adornan el hotel"
+      src: "/gallery/2-Jardin.jpg",
+      alt: "Jardín del hotel",
+      title: "Jardines",
+      description: "Hermosos jardines que complementan la arquitectura colonial"
     },
     {
-      src: "/colonial-hotel-bar-with-rustic-decor.jpg",
-      alt: "Bar",
-      title: "Bar Colonial",
-      description: "Bar con decoración rústica que conserva el encanto de la época colonial"
+      src: "/gallery/3-Gelato-&-Café.jpg",
+      alt: "Gelato y café",
+      title: "Gelato & Café",
+      description: "Deliciosos gelatos artesanales y café recién hecho"
+    },
+    {
+      src: "/gallery/4-Restaurant.jpg",
+      alt: "Restaurante del hotel",
+      title: "Restaurante",
+      description: "Nuestro acogedor restaurante con ambiente colonial auténtico"
+    },
+    {
+      src: "/gallery/5-Bar.jpg",
+      alt: "Bar del hotel",
+      title: "Bar",
+      description: "Bar con decoración colonial y ambiente rústico encantador"
+    },
+    {
+      src: "/gallery/6-Fachada 2.jpg",
+      alt: "Vista alternativa de la fachada",
+      title: "Fachada Colonial",
+      description: "Otra perspectiva de nuestra hermosa arquitectura colonial"
+    },
+    {
+      src: "/gallery/7-Jardin-2.jpg",
+      alt: "Jardín alternativo",
+      title: "Áreas Verdes",
+      description: "Espacios naturales perfectos para el descanso y relajación"
+    },
+    {
+      src: "/gallery/8-Alberca.jpg",
+      alt: "Alberca del hotel",
+      title: "Alberca",
+      description: "Refrescante alberca en un entorno colonial único"
+    },
+    {
+      src: "/gallery/9-Pet-Friendly.jpg",
+      alt: "Espacio pet friendly",
+      title: "Pet Friendly",
+      description: "Espacios especiales donde tus mascotas son bienvenidas"
     },
   ]
 

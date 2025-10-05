@@ -4,21 +4,21 @@ import { Users, Bed, Coffee, Wifi, Waves, Flame } from "lucide-react";
 export function Rooms() {
   const rooms = [
     {
-      title: "Habitación King",
+      title: "Habitación Sencilla King",
       subtitle: "Para 2 personas",
       description:
         "Espaciosa habitación con cama King size, perfecta para parejas que buscan comodidad y privacidad.",
-      image: "/colonial-hotel-room-with-king-bed-fireplace-and-ru.jpg",
+      image: "/rooms/Habitación-King.jpg",
       icon: Users,
       capacity: "2 personas",
       bed: "Cama King",
     },
     {
-      title: "Habitación Familiar",
+      title: "Habitación Doble Queen",
       subtitle: "Para 4 personas",
       description:
         "Amplia habitación con dos camas Queen size, ideal para familias que desean disfrutar juntos.",
-      image: "/colonial-hotel-family-room-with-two-queen-beds-war.jpg",
+      image: "/rooms/Habitación-Queen-doble.jpg",
       icon: Users,
       capacity: "4 personas",
       bed: "2 Camas Queen",

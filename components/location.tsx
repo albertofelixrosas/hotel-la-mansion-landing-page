@@ -1,6 +1,11 @@
-import { MapPin, Landmark } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { MapPin, Landmark, ChevronLeft, ChevronRight } from "lucide-react"
 
 export function Location() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
   const attractions = [
     "Plaza de Armas",
     "Templo Purísima Concepción",
@@ -9,6 +14,41 @@ export function Location() {
     "Mercado Municipal",
     "Plaza Alameda",
   ]
+
+  const locationImages = [
+    {
+      src: "/aerial-view-of-alamos-sonora-mexico-colonial-town-.jpg",
+      alt: "Vista aérea de Álamos",
+      title: "Vista Aérea de Álamos"
+    },
+    {
+      src: "/colonial-mexican-hotel-exterior-with-arches-and-co.jpg",
+      alt: "Exterior colonial del hotel",
+      title: "Arquitectura Colonial"
+    },
+    {
+      src: "/colonial-hotel-exterior-facade-at-sunset-in-alamos.jpg",
+      alt: "Fachada del hotel al atardecer",
+      title: "Atardecer en Álamos"
+    },
+    {
+      src: "/colonial-hotel-courtyard-with-fountain-and-arches-.jpg",
+      alt: "Patio colonial con fuente",
+      title: "Centro Histórico"
+    }
+  ]
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % locationImages.length)
+  }
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + locationImages.length) % locationImages.length)
+  }
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index)
+  }
 
   return (
     <section className="py-20 md:py-32">
@@ -53,8 +93,49 @@ export function Location() {
             </p>
           </div>
 
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-            <img src="/aerial-view-of-alamos-sonora-mexico-colonial-town-.jpg" alt="Mapa de ubicación" className="w-full h-full object-cover" />
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg group">
+            {/* Imagen principal del carrusel */}
+            <img 
+              src={locationImages[currentIndex].src} 
+              alt={locationImages[currentIndex].alt} 
+              className="w-full h-full object-cover transition-transform duration-500" 
+            />
+            
+            {/* Overlay con título */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+              <h4 className="text-white font-serif text-lg">{locationImages[currentIndex].title}</h4>
+            </div>
+
+            {/* Botón anterior */}
+            <button
+              onClick={goToPrevious}
+              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors opacity-0 group-hover:opacity-100"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            {/* Botón siguiente */}
+            <button
+              onClick={goToNext}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors opacity-0 group-hover:opacity-100"
+            >
+              <ChevronRight size={20} />
+            </button>
+
+            {/* Indicadores */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {locationImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? 'bg-white scale-125' 
+                      : 'bg-white/60 hover:bg-white/80'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

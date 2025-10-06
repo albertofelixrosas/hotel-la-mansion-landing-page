@@ -18,27 +18,27 @@ export function Location() {
 
   const locationImages = [
     {
-      src: "/ubications/Plaza de Armas.jpg",
+      src: "/ubications/plaza-de-armas.jpg",
       alt: "Plaza de Armas de Álamos",
       title: "Plaza de Armas"
     },
     {
-      src: "/ubications/Templo Purísima Concepción.jpg",
+      src: "/ubications/templo-purisima-concepcion.jpg",
       alt: "Templo de la Purísima Concepción",
       title: "Templo Purísima Concepción"
     },
     {
-      src: "/ubications/Museo Costumbrista.jpeg",
+      src: "/ubications/museo-costumbrista.jpeg",
       alt: "Museo Costumbrista de Sonora",
       title: "Museo Costumbrista"
     },
     {
-      src: "/ubications/Callejón del Beso.jpg",
+      src: "/ubications/callejon-del-beso.jpg",
       alt: "Callejón del Beso en Álamos",
       title: "Callejón del Beso"
     },
     {
-      src: "/ubications/Plaza Alameda.jpg",
+      src: "/ubications/plaza-alameda.jpg",
       alt: "Plaza Alameda de Álamos",
       title: "Plaza Alameda"
     }

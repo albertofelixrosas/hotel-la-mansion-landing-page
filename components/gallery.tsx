@@ -11,55 +11,55 @@ export function Gallery() {
 
   const images = [
     {
-      src: "/gallery/1-Fachada-1.jpg",
+      src: "/gallery/1-fachada-1.jpg",
       alt: t.gallery.images.facade.alt,
       title: t.gallery.images.facade.title,
       description: t.gallery.images.facade.description
     },
     {
-      src: "/gallery/2-Jardin.jpg",
+      src: "/gallery/2-jardin.jpg",
       alt: t.gallery.images.garden.alt,
       title: t.gallery.images.garden.title,
       description: t.gallery.images.garden.description
     },
     {
-      src: "/gallery/3-Gelato-&-Café.jpg",
+      src: "/gallery/3-gelato-y-cafe.jpg",
       alt: t.gallery.images.gelato.alt,
       title: t.gallery.images.gelato.title,
       description: t.gallery.images.gelato.description
     },
     {
-      src: "/gallery/4-Restaurant.jpg",
+      src: "/gallery/4-restaurant.jpg",
       alt: t.gallery.images.restaurant.alt,
       title: t.gallery.images.restaurant.title,
       description: t.gallery.images.restaurant.description
     },
     {
-      src: "/gallery/5-Bar.jpg",
+      src: "/gallery/5-bar.jpg",
       alt: t.gallery.images.bar.alt,
       title: t.gallery.images.bar.title,
       description: t.gallery.images.bar.description
     },
     {
-      src: "/gallery/6-Fachada 2.jpg",
+      src: "/gallery/6-fachada-2.jpg",
       alt: t.gallery.images.facade2.alt,
       title: t.gallery.images.facade2.title,
       description: t.gallery.images.facade2.description
     },
     {
-      src: "/gallery/7-Jardin-2.jpg",
+      src: "/gallery/7-jardin-2.jpg",
       alt: t.gallery.images.garden2.alt,
       title: t.gallery.images.garden2.title,
       description: t.gallery.images.garden2.description
     },
     {
-      src: "/gallery/8-Alberca.jpg",
+      src: "/gallery/8-alberca.jpg",
       alt: t.gallery.images.pool.alt,
       title: t.gallery.images.pool.title,
       description: t.gallery.images.pool.description
     },
     {
-      src: "/gallery/9-Pet-Friendly.jpg",
+      src: "/gallery/9-pet-friendly.jpg",
       alt: t.gallery.images.petFriendly.alt,
       title: t.gallery.images.petFriendly.title,
       description: t.gallery.images.petFriendly.description

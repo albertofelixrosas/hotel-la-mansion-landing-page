@@ -12,7 +12,6 @@ export function Location() {
     "Plaza de Armas",
     "Templo Purísima Concepción",
     "Museo Costumbrista",
-    "Callejón del Beso",
     "Plaza Alameda",
   ]
 
@@ -31,11 +30,6 @@ export function Location() {
       src: "/ubications/museo-costumbrista.jpeg",
       alt: "Museo Costumbrista de Sonora",
       title: "Museo Costumbrista"
-    },
-    {
-      src: "/ubications/callejon-del-beso.jpg",
-      alt: "Callejón del Beso en Álamos",
-      title: "Callejón del Beso"
     },
     {
       src: "/ubications/plaza-alameda.jpg",
@@ -86,7 +80,7 @@ export function Location() {
               <ul className="grid grid-cols-2 gap-3">
                 {attractions.map((attraction) => (
                   <li key={attraction} className="flex items-center gap-2 text-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-foreground" />
                     {attraction}
                   </li>
                 ))}

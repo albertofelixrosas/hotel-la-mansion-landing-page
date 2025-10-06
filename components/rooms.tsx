@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Bed, Coffee, Wifi, Waves, Flame } from "lucide-react";
+import { Users, Bed, Coffee, Wifi, Waves, Flame, Snowflake } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Rooms() {
@@ -32,6 +32,7 @@ export function Rooms() {
     { icon: Flame, label: t.rooms.amenities.fireplace },
     { icon: Wifi, label: t.rooms.amenities.wifi },
     { icon: Waves, label: t.rooms.amenities.pool },
+    { icon: Snowflake, label: t.rooms.amenities.ac },
   ];
 
   return (
@@ -81,7 +82,7 @@ export function Rooms() {
           <h3 className="font-serif text-2xl md:text-3xl mb-8 text-center">
             {t.rooms.amenitiesTitle}
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 justify-items-center">
             {amenities.map((amenity) => (
               <div
                 key={amenity.label}

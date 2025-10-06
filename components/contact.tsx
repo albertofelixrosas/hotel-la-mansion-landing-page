@@ -1,11 +1,31 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Mail } from "lucide-react"
+import { Mail, Calendar, Plane, Bed, Star, Globe, MapPin } from "lucide-react"
+import { useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Contact() {
   const { t } = useLanguage()
+
+  function IconOrFallback({
+    src,
+    alt,
+    fallback,
+  }: {
+    src: string
+    alt: string
+    fallback: React.ReactNode
+  }) {
+    const [failed, setFailed] = useState(false)
+
+    if (failed) return <>{fallback}</>
+
+    return (
+      // img onError will set failed to true if file missing or invalid
+      <img src={src} alt={alt} className="w-4 h-4 object-contain" onError={() => setFailed(true)} />
+    )
+  }
 
   return (
     <section id="contact" className="py-20 md:py-32 bg-muted/30">
@@ -64,33 +84,39 @@ export function Contact() {
               <h4 className="font-semibold mb-4">{t.contact.alsoFindUs}</h4>
               <div className="grid grid-cols-2 gap-3">
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://www.booking.com/Share-9qkYyT" target="_blank" rel="noopener noreferrer">
-                    Booking.com
+                  <a href="https://www.booking.com/Share-9qkYyT" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <IconOrFallback src="/icons/booking.svg" alt="Booking" fallback={<Calendar className="w-4 h-4" />} />
+                    <span>Booking.com</span>
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://expe.app.link/pLMXxkAAcXb" target="_blank" rel="noopener noreferrer">
-                    Expedia
+                  <a href="https://expe.app.link/pLMXxkAAcXb" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <IconOrFallback src="/icons/expedia.svg" alt="Expedia" fallback={<Plane className="w-4 h-4" />} />
+                    <span>Expedia</span>
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://hotels.app.link/QCWkvcDAcXb" target="_blank" rel="noopener noreferrer">
-                    Hotels.com
+                  <a href="https://hotels.app.link/QCWkvcDAcXb" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <IconOrFallback src="/icons/hotels.svg" alt="Hotels.com" fallback={<Bed className="w-4 h-4" />} />
+                    <span>Hotels.com</span>
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://www.tripadvisor.com.mx/Hotel_Review-g499429-d594293-Reviews-Hotel_La_Mansion-Alamos_Northern_Mexico.html?m=19905" target="_blank" rel="noopener noreferrer">
-                    TripAdvisor
+                  <a href="https://www.tripadvisor.com.mx/Hotel_Review-g499429-d594293-Reviews-Hotel_La_Mansion-Alamos_Northern_Mexico.html?m=19905" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <IconOrFallback src="/icons/tripadvisor.svg" alt="TripAdvisor" fallback={<Star className="w-4 h-4" />} />
+                    <span>TripAdvisor</span>
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://www.agoda.com/es-es/hotel-la-mansion/hotel/all/alamos-mx.html?countryId=86&finalPriceView=1&isShowMobileAppPrice=false&cid=1918349&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2025-10-9&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MXN&isFreeOccSearch=false&los=1&searchrequestid=e012b177-eedf-45f6-a807-df5291d05ef2&ds=nJGapONkFnVtOGdg" target="_blank" rel="noopener noreferrer">
-                    Agoda
+                  <a href="https://www.agoda.com/es-es/hotel-la-mansion/hotel/all/alamos-mx.html?countryId=86&finalPriceView=1&isShowMobileAppPrice=false&cid=1918349&numberOfBedrooms=&familyMode=false&adults=2&children=0&rooms=1&maxRooms=0&checkIn=2025-10-9&isCalendarCallout=false&childAges=&numberOfGuest=0&missingChildAges=false&travellerType=1&showReviewSubmissionEntry=false&currencyCode=MXN&isFreeOccSearch=false&los=1&searchrequestid=e012b177-eedf-45f6-a807-df5291d05ef2&ds=nJGapONkFnVtOGdg" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <IconOrFallback src="/icons/agoda.svg" alt="Agoda" fallback={<Globe className="w-4 h-4" />} />
+                    <span>Agoda</span>
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://www.despegar.com.mx/accommodations/results/CIT_8250/2025-10-09/2025-10-10/2?chosen_accommodation=5156670&google_site=localuniversal&displayed_price=2272.78&country=MX&lang=es&crawler=false&partner=4&hotprv=cHc6RVhQ&utm_source=HPA&utm_medium=referral&utm_term=5156670_322796524_localuniversal_MX_es_MXN_18.39859962_2025_10_09_1_2272.78_362.82_false&utm_content=MX&utm_campaign=20371800406&cc=MX&key=UT81AK9JAFEGJ4D69OVO6J673E&utm_semhotelcampaign=1&selected_room_pack=275407515&gad_source=1&gad_campaignid=20371800406&gbraid=0AAAAAC-UydKOnNIoRhPW9Xplgam571rlT&gclid=CjwKCAjwi4PHBhA-EiwAnjTHubReWuk4I0JlZuOPcQvFOIg0l6yvWEtYmG_K4xhOk6B0QPNxqWtsqRoCJMAQAvD_BwE&mktdata=kw%3D5156670_322796524_localuniversal_MX_es_MXN_18.39859962_2025_10_09_1_2272.78_false%26clt_c%3DHPA-MX%26clt_n%3Dh%26d%3Dc%26cm%3DHPA_MX%26pr%3DH%26campaignid%3D20371800406%26targetid%3Daud-%26hpa_dd%3Ddefault%26hpa_ppa%3D0%26google_site%3Dlocaluniversal%26displayed_price%3D2272.78%26country%3DMX%26lang%3Des%26crawler%3Dfalse%26partner%3D4%26hotprv%3DcHc6RVhQ%26utm_source%3DHPA%26utm_medium%3Dreferral%26utm_term%3D5156670_322796524_localuniversal_MX_es_MXN_18.39859962_2025_10_09_1_2272.78_362.82_false%26utm_content%3DMX%26utm_campaign%3D20371800406%26cc%3DMX%26key%3DUT81AK9JAFEGJ4D69OVO6J673E%26utm_semhotelcampaign%3D1%26selected_room_pack%3D275407515%26gad_source%3D1%26gad_campaignid%3D20371800406%26gbraid%3D0AAAAAC-UydKOnNIoRhPW9Xplgam571rlT%26gclid%3DCjwKCAjwi4PHBhA-EiwAnjTHubReWuk4I0JlZuOPcQvFOIg0l6yvWEtYmG_K4xhOk6B0QPNxqWtsqRoCJMAQAvD_BwE%26id%3D20251004222402147247927695187306%26trackeame_user_id%3D8bdd4884-f107-4a89-9c69-8b4dcfbdafe1&searchId=7d1dbf4e-93e2-4264-b08d-830ec89a6e4e" target="_blank" rel="noopener noreferrer">
-                    Despegar
+                  <a href="https://www.despegar.com.mx/accommodations/results/CIT_8250/2025-10-09/2025-10-10/2?chosen_accommodation=5156670&google_site=localuniversal&displayed_price=2272.78&country=MX&lang=es&crawler=false&partner=4&hotprv=cHc6RVhQ&utm_source=HPA&utm_medium=referral&utm_term=5156670_322796524_localuniversal_MX_es_MXN_18.39859962_2025_10_09_1_2272.78_362.82_false&utm_content=MX&utm_campaign=20371800406&cc=MX&key=UT81AK9JAFEGJ4D69OVO6J673E&utm_semhotelcampaign=1&selected_room_pack=275407515&gad_source=1&gad_campaignid=20371800406&gbraid=0AAAAAC-UydKOnNIoRhPW9Xplgam571rlT&gclid=CjwKCAjwi4PHBhA-EiwAnjTHubReWuk4I0JlZuOPcQvFOIg0l6yvWEtYmG_K4xhOk6B0QPNxqWtsqRoCJMAQAvD_BwE&mktdata=kw%3D5156670_322796524_localuniversal_MX_es_MXN_18.39859962_2025_10_09_1_2272.78_false%26clt_c%3DHPA-MX%26clt_n%3Dh%26d%3Dc%26cm%3DHPA_MX%26pr%3DH%26campaignid%3D20371800406%26targetid%3Daud-%26hpa_dd%3Ddefault%26hpa_ppa%3D0%26google_site%3Dlocaluniversal%26displayed_price%3D2272.78%26country%3DMX%26lang%3Des%26crawler%3Dfalse%26partner%3D4%26hotprv%3DcHc6RVhQ%26utm_source%3DHPA%26utm_medium%3Dreferral%26utm_term%3D5156670_322796524_localuniversal_MX_es_MXN_18.39859962_2025_10_09_1_2272.78_362.82_false%26utm_content%3DMX%26utm_campaign%3D20371800406%26cc%3DMX%26key%3DUT81AK9JAFEGJ4D69OVO6J673E%26utm_semhotelcampaign%3D1%26selected_room_pack%3D275407515%26gad_source%3D1%26gad_campaignid%3D20371800406%26gbraid%3D0AAAAAC-UydKOnNIoRhPW9Xplgam571rlT%26gclid%3DCjwKCAjwi4PHBhA-EiwAnjTHubReWuk4I0JlZuOPcQvFOIg0l6yvWEtYmG_K4xhOk6B0QPNxqWtsqRoCJMAQAvD_BwE%26id%3D20251004222402147247927695187306%26trackeame_user_id%3D8bdd4884-f107-4a89-9c69-8b4dcfbdafe1&searchId=7d1dbf4e-93e2-4264-b08d-830ec89a6e4e" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <IconOrFallback src="/icons/despegar.svg" alt="Despegar" fallback={<MapPin className="w-4 h-4" />} />
+                    <span>Despegar</span>
                   </a>
                 </Button>
               </div>

@@ -65,6 +65,7 @@ export interface Translations {
       fireplace: string
       wifi: string
       pool: string
+      ac: string
     }
   }
   
@@ -295,7 +296,8 @@ const translations: Record<Language, Translations> = {
         breakfast: 'Desayuno incluido',
         fireplace: 'Chimenea',
         wifi: 'WiFi gratis',
-        pool: 'Acceso a alberca'
+        pool: 'Acceso a alberca',
+        ac: 'Aire acondicionado'
       }
     },
     services: {
@@ -491,7 +493,8 @@ const translations: Record<Language, Translations> = {
         breakfast: 'Breakfast included',
         fireplace: 'Fireplace',
         wifi: 'Free WiFi',
-        pool: 'Pool access'
+        pool: 'Pool access',
+        ac: 'Air conditioning'
       }
     },
     services: {

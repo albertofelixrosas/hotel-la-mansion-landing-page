@@ -1,3 +1,6 @@
+/* Import Google Fonts first */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -124,10 +127,35 @@
 }
 
 /* Custom serif font for headings */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
-
 .font-serif {
   font-family: "Playfair Display", serif;
 }
 
-/* No CSS transitions - let next-themes handle it natively */
+/* Transiciones suaves y optimizadas para el tema */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Elementos que NO deben tener transiciones */
+img,
+video,
+iframe,
+embed,
+object,
+svg,
+canvas,
+*[style*="transition"],
+*[class*="animate-"],
+*[class*="motion-"] {
+  transition: none !important;
+}
+
+/* Desactiva TODAS las transiciones durante el cambio de tema */
+html.disable-theme-transitions *,
+html.disable-theme-transitions *::before,
+html.disable-theme-transitions *::after {
+  transition-duration: 0ms !important;
+  animation-duration: 0ms !important;
+}

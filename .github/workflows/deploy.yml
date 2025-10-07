@@ -1,37 +1,43 @@
-name: Deploy to GoDaddy
+name: 🚀 Deploy Next.js static site to GoDaddy via FTP
 
 on:
   push:
     branches:
-      - main
+      - main # Cambia si tu rama principal se llama diferente
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🧾 Checkout repository
+      - name: 🧩 Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🧰 Set up Node.js
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: 📦 Install dependencies
-        run: |
-          corepack enable
-          pnpm install --frozen-lockfile
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
-      - name: 🏗️ Build Next.js static site
+      - name: 📥 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🏗️ Build Next.js (static export)
         run: pnpm build
 
-      - name: 📤 Deploy to GoDaddy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: 📤 Upload to GoDaddy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out
-          server-dir: /
-          dangerous-clean-slate: true
+          server-dir: / # Puedes ajustar la carpeta destino en el hosting si lo necesitas
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/*

@@ -131,41 +131,40 @@
   font-family: "Playfair Display", serif;
 }
 
-/* === TRANSICIONES DE TEMA CONVENCIONALES === */
+/* === TRANSICIONES DE TEMA (SOLO 3 PROPIEDADES) === */
 
-/* Transición base para todos los elementos */
+/* Transiciones específicas SOLO para: color de fuente, fondo y sombras */
 *,
 *::before,
 *::after {
   transition: 
-    background-color 300ms ease-out,
-    border-color 300ms ease-out,
     color 300ms ease-out,
-    fill 300ms ease-out,
-    stroke 300ms ease-out,
+    background-color 300ms ease-out,
     box-shadow 300ms ease-out;
 }
 
-/* Elementos que NO necesitan transiciones de color */
+/* Elementos multimedia SIN transiciones */
 img,
 video,
 iframe,
 embed,
 object,
-canvas {
+canvas,
+svg {
   transition: none !important;
 }
 
-/* Elementos con animaciones propias (no interferir) */
+/* Elementos con animaciones Tailwind (mantener sus propias transiciones) */
 *[class*="animate-"],
 *[class*="transition-"],
-*[data-state] {
-  transition-property: transform, opacity, scale !important;
+*[class*="duration-"],
+*[class*="ease-"] {
+  transition-property: transform, opacity, scale, translate !important;
 }
 
-/* Clase temporal para deshabilitar transiciones durante cambio de tema */
+/* Durante cambio de tema: desactivar temporalmente las 3 transiciones */
 .theme-transitioning *,
 .theme-transitioning *::before,
 .theme-transitioning *::after {
-  transition-duration: 0ms !important;
+  transition-duration: 300ms !important;
 }

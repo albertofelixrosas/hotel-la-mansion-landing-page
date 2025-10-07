@@ -1,34 +1,19 @@
 "use client"
 
-import Image from "next/image"
-import { useState, useEffect } from "react"
-import { useTheme } from "next-themes"
+import { Logo } from "@/components/ui/logo"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Footer() {
-  const [mounted, setMounted] = useState(false)
-  const { theme } = useTheme()
   const { t } = useLanguage()
-
-  // Evitar problemas de hidratación con next-themes
-  useEffect(() => {
-    setMounted(true)
-  }, [])
   
   return (
     <footer className="bg-foreground text-background py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <Image
-              src="/logo.png"
-              alt="Hotel La Mansión"
-              width={180}
-              height={60}
-              className={`h-12 w-auto mb-4 ${
-                mounted && theme === 'light' ? 'brightness-0 invert' : ''
-              }`}
-            />
+            <div className="mb-4">
+              <Logo />
+            </div>
             <p className="text-sm text-background/80 leading-relaxed">
               {t.footer.description}
             </p>

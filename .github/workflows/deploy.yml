@@ -35,7 +35,7 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
-          local-dir: ./out
+          local-dir: ./out/
           server-dir: / # Puedes ajustar la carpeta destino en el hosting si lo necesitas
           exclude: |
             **/.git*

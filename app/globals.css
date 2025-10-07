@@ -131,31 +131,41 @@
   font-family: "Playfair Display", serif;
 }
 
-/* Transiciones suaves y optimizadas para el tema */
-* {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+/* === TRANSICIONES DE TEMA CONVENCIONALES === */
+
+/* Transición base para todos los elementos */
+*,
+*::before,
+*::after {
+  transition: 
+    background-color 300ms ease-out,
+    border-color 300ms ease-out,
+    color 300ms ease-out,
+    fill 300ms ease-out,
+    stroke 300ms ease-out,
+    box-shadow 300ms ease-out;
 }
 
-/* Elementos que NO deben tener transiciones */
+/* Elementos que NO necesitan transiciones de color */
 img,
 video,
 iframe,
 embed,
 object,
-svg,
-canvas,
-*[style*="transition"],
-*[class*="animate-"],
-*[class*="motion-"] {
+canvas {
   transition: none !important;
 }
 
-/* Desactiva TODAS las transiciones durante el cambio de tema */
-html.disable-theme-transitions *,
-html.disable-theme-transitions *::before,
-html.disable-theme-transitions *::after {
+/* Elementos con animaciones propias (no interferir) */
+*[class*="animate-"],
+*[class*="transition-"],
+*[data-state] {
+  transition-property: transform, opacity, scale !important;
+}
+
+/* Clase temporal para deshabilitar transiciones durante cambio de tema */
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
   transition-duration: 0ms !important;
-  animation-duration: 0ms !important;
 }

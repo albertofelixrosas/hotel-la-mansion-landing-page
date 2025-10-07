@@ -6,7 +6,7 @@ import {
   type ThemeProviderProps,
   useTheme
 } from 'next-themes'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
@@ -17,36 +17,28 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 }
 
 function ThemeTransitionWrapper({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme()
+  const { theme, systemTheme } = useTheme()
+  const [isChanging, setIsChanging] = useState(false)
 
-  // Evita el lag al cambiar de tema
+  // Manejo convencional de transiciones de tema
   useEffect(() => {
-    const html = document.documentElement
-    let timeoutId: NodeJS.Timeout
+    if (!theme) return
 
-    const handleThemeChange = () => {
-      // Deshabilitar transiciones temporalmente
-      html.classList.add('disable-theme-transitions')
-      
-      // Limpiar timeout anterior si existe
-      if (timeoutId) clearTimeout(timeoutId)
-      
-      // Re-habilitar transiciones después del cambio
-      timeoutId = setTimeout(() => {
-        html.classList.remove('disable-theme-transitions')
-      }, 150) // Tiempo suficiente para que complete el cambio
-    }
+    // Marcar que estamos cambiando tema
+    setIsChanging(true)
+    document.documentElement.classList.add('theme-transitioning')
 
-    // Solo ejecutar cuando el tema realmente cambie
-    if (theme) {
-      handleThemeChange()
-    }
+    // Remover la clase después de un breve momento
+    const timer = setTimeout(() => {
+      document.documentElement.classList.remove('theme-transitioning')
+      setIsChanging(false)
+    }, 100)
 
-    // Cleanup
     return () => {
-      if (timeoutId) clearTimeout(timeoutId)
+      clearTimeout(timer)
+      document.documentElement.classList.remove('theme-transitioning')
     }
-  }, [theme])
+  }, [theme, systemTheme])
 
   return <>{children}</>
 }

@@ -129,3 +129,5 @@
 .font-serif {
   font-family: "Playfair Display", serif;
 }
+
+/* No CSS transitions - let next-themes handle it natively */

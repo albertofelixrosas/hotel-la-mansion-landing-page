@@ -1,14 +1,22 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
+
+  // Evitar problemas de hidratación con next-themes
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const navItems = [
     { key: "home", section: "hero" },
@@ -28,7 +36,15 @@ export function Navigation() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Image src="/logo.png" alt="Hotel La Mansión" width={180} height={60} className="h-12 w-auto" />
+            <Image 
+              src="/logo.png" 
+              alt="Hotel La Mansión" 
+              width={180} 
+              height={60} 
+              className={`h-12 w-auto ${
+                mounted && theme === 'dark' ? 'brightness-0 invert' : ''
+              }`}
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -43,14 +59,27 @@ export function Navigation() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={() => setLanguage(language === "es" ? "en" : "es")} 
-              className="text-sm hover:bg-primary/10 hover:scale-105 transition-all duration-300 border border-transparent hover:border-primary/20"
-            >
-              {t.nav.language}
-            </Button>
+            <div className="flex items-center gap-2">
+              {mounted && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="hover:bg-primary/10 hover:scale-105 transition-all duration-300 border border-transparent hover:border-primary/20"
+                  aria-label="Cambiar tema"
+                >
+                  {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                </Button>
+              )}
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => setLanguage(language === "es" ? "en" : "es")} 
+                className="text-sm hover:bg-primary/10 hover:scale-105 transition-all duration-300 border border-transparent hover:border-primary/20"
+              >
+                {t.nav.language}
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,14 +100,36 @@ export function Navigation() {
                 {t.nav[item.key as keyof typeof t.nav]}
               </button>
             ))}
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={() => setLanguage(language === "es" ? "en" : "es")} 
-              className="text-sm hover:bg-primary/10 transition-all duration-300 border border-transparent hover:border-primary/20"
-            >
-              {language === "es" ? "English" : "Español"}
-            </Button>
+            <div className="flex flex-col gap-2">
+              {mounted && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="justify-start text-sm hover:bg-primary/10 transition-all duration-300 border border-transparent hover:border-primary/20"
+                >
+                  {theme === "dark" ? (
+                    <>
+                      <Sun size={18} className="mr-2" />
+                      Tema Claro
+                    </>
+                  ) : (
+                    <>
+                      <Moon size={18} className="mr-2" />
+                      Tema Oscuro
+                    </>
+                  )}
+                </Button>
+              )}
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => setLanguage(language === "es" ? "en" : "es")} 
+                className="justify-start text-sm hover:bg-primary/10 transition-all duration-300 border border-transparent hover:border-primary/20"
+              >
+                {language === "es" ? "English" : "Español"}
+              </Button>
+            </div>
           </div>
         )}
       </div>

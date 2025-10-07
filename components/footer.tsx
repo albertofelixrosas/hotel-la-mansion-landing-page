@@ -1,10 +1,19 @@
 "use client"
 
 import Image from "next/image"
+import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Footer() {
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
   const { t } = useLanguage()
+
+  // Evitar problemas de hidratación con next-themes
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   
   return (
     <footer className="bg-foreground text-background py-12">
@@ -16,7 +25,9 @@ export function Footer() {
               alt="Hotel La Mansión"
               width={180}
               height={60}
-              className="h-12 w-auto mb-4 brightness-0 invert"
+              className={`h-12 w-auto mb-4 ${
+                mounted && theme === 'light' ? 'brightness-0 invert' : ''
+              }`}
             />
             <p className="text-sm text-background/80 leading-relaxed">
               {t.footer.description}
